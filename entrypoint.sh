@@ -18,7 +18,7 @@ echo 'sftp upload start'
 printf "%s" "put -r $5 $6" > $SFTP_FILE
 
 # -o StrictHostKeyChecking=no
-sftp -b $SFTP_FILE -P $4 -i $SSH_PRIVATE_KEY_FILE $1@$2
+sftp -b $SFTP_FILE -P $4 -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY_FILE $1@$2
 
 echo 'deploy success'
 
