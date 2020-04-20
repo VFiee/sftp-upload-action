@@ -21,7 +21,7 @@ inputs:
   port:
     description: "sftp running port"
     required: true
-    default: "9999"
+    default: "22"
 
   from-path:
     description: "The path of the file you want to copy"
