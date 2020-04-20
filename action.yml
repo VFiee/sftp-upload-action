@@ -1,0 +1,45 @@
+# upload file action by sftp
+name: "SFTP_UPLOAD_ACTION"
+description: "Upload file to server by sftp"
+branding:
+  icon: "file"
+  color: "yellow"
+inputs:
+  user-name:
+    description: "Server login user name"
+    required: true
+    default: "root"
+
+  server-ip:
+    description: "Server ip"
+    required: true
+
+  ssh-private-key:
+    description: "The private key for logging in to the server for authentication"
+    required: true
+
+  port:
+    description: "sftp running port"
+    required: true
+    default: "9999"
+
+  from-path:
+    description: "The path of the file you want to copy"
+    required: true
+    default: ./dist/*
+
+  to-path:
+    description: "The path of the file you want to paste on the server"
+    required: true
+    default: /
+
+  runs:
+    using: "docker"
+    image: "Dockerfile"
+    args:
+      - ${{inputs.user-name}}
+      - ${{inputs.server-ip}}
+      - ${{inputs.ssh-private-key}}
+      - ${{inputs.port}}
+      - ${{inputs.from-path}}
+      - ${{inputs.to-path}}
