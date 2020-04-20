@@ -33,13 +33,13 @@ inputs:
     required: true
     default: /
 
-  runs:
-    using: "docker"
-    image: "Dockerfile"
-    args:
-      - ${{inputs.user-name}}
-      - ${{inputs.server-ip}}
-      - ${{inputs.ssh-private-key}}
-      - ${{inputs.port}}
-      - ${{inputs.from-path}}
-      - ${{inputs.to-path}}
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{inputs.user-name}}
+    - ${{inputs.server-ip}}
+    - ${{inputs.ssh-private-key}}
+    - ${{inputs.port}}
+    - ${{inputs.from-path}}
+    - ${{inputs.to-path}}
