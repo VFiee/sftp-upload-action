@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -eu
+
 SSH_PRIVATE_KEY_FILE='../private_key.pem'
 SFTP_FILE='../sftp'
 
